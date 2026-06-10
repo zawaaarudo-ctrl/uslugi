@@ -1,0 +1,895 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дмитрий Филиппов — Видение, к которому тянет идти самому</title>
+<meta name="description" content="Цели есть, а тяги нет? Помогаю собрать Видение из разбора вашего прошлого — живой образ будущего, ради которого идёшь сам. Плюс AI-контур и капитанский мостик.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f1e7; --paper-2:#fbf8f1; --card:#fffdf8; --card-2:#fbf7ee;
+  --ink:#23292b; --ink-soft:#55605f; --ink-faint:#8a938f;
+  --line:#e2d9c8; --line-2:#ece3d4;
+  --brass:#a8761f; --brass-deep:#8a5f15; --brass-wash:#f4ead4;
+  --teal:#1d6b5c; --teal-deep:#155244; --teal-wash:#e2efea;
+  --coral:#bb4a32; --coral-wash:#f7e7e1;
+  --key:#dc2626;
+  --hoodie:#B41F2A;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --r:18px;
+  --shadow:0 1px 2px rgba(60,45,15,.04),0 10px 34px rgba(60,45,15,.07);
+  --shadow-lg:0 20px 60px rgba(60,45,15,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--paper);
+  background-image:linear-gradient(rgba(168,118,31,.085) 1px,transparent 1px),linear-gradient(90deg,rgba(168,118,31,.085) 1px,transparent 1px);
+  background-size:40px 40px;
+  color:var(--ink);font-family:'Hanken Grotesk',sans-serif;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.bgwash{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(1200px 560px at 88% -12%,var(--brass-wash),transparent 58%),
+  radial-gradient(820px 460px at -6% 4%,var(--teal-wash),transparent 52%);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.display{font-family:'Geologica',sans-serif;font-weight:800;line-height:1.06;letter-spacing:-.02em}
+.mono{font-family:'Hanken Grotesk',sans-serif}
+.muted{color:var(--ink-faint)}
+
+.rv{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}}
+
+/* ===== HERO ===== */
+header.hero{padding:9px 0}
+.kick{font-family:'Hanken Grotesk',sans-serif;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-deep);font-weight:600}
+h1.t{font-family:'Geologica',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,48px);line-height:1.07;letter-spacing:-.01em;margin:0;max-width:none;white-space:nowrap}
+@media(max-width:900px){h1.t{white-space:normal;font-size:clamp(28px,7vw,38px)}}
+h1.t .em{color:var(--hoodie)}
+.herobul{list-style:none;margin:22px 0 0;display:flex;flex-direction:column;gap:11px}
+.herobul li{font-size:15.5px;color:var(--ink);line-height:1.45;padding-left:0;display:flex;gap:12px;align-items:baseline}
+.herobul .ic{flex:none;font-size:18px;line-height:1.45;width:24px;text-align:center}
+.heroanswer{position:relative;color:var(--ink);font-family:'Geologica',sans-serif;font-weight:800;letter-spacing:-.01em;line-height:1.3;background:var(--brass-wash);
+  font-size:clamp(18px,2vw,23px);margin:24px -14px 0;padding:33px 24px;border-radius:13px}
+.heroanswer::after{content:'';position:absolute;inset:6px;border:1.5px solid rgba(178,140,60,.55);border-radius:9px;pointer-events:none}
+.heroanswer .em{color:#124463}
+.herocta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;
+  padding:13px 22px;border-radius:13px;text-decoration:none;transition:.18s;border:1.5px solid transparent;cursor:pointer}
+.btn-pri{background:var(--ink);color:var(--paper-2)}
+.btn-pri:hover{background:#000;transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--card)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass-deep);transform:translateY(-2px)}
+.microcta{font-size:13px;color:var(--ink-faint);margin-top:13px;display:flex;align-items:center;gap:8px}
+.microcta::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+/* trust metrics */
+.metrics{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.metric{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
+  border-radius:13px;padding:12px 17px;box-shadow:var(--shadow);min-width:128px}
+.metric .num{font-family:'Geologica',sans-serif;font-weight:700;font-size:21px;color:#124463;line-height:1}
+.metric .lbl{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.3}
+/* hero: фото во всю высоту */
+.hcard{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:stretch;
+  background:rgba(255,253,248,.5);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-lg);overflow:hidden}
+.hcard::before{content:'';position:absolute;inset:0;background:radial-gradient(1000px 460px at 50% -16%,rgba(180,31,42,.28),transparent 64%);pointer-events:none;z-index:0}
+.hcard .txt{position:relative;z-index:1;padding:30px 44px}
+.hcard .photo{position:relative}
+.hcard .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%}
+.hcard .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:46px 20px 18px;text-align:center;
+  background:linear-gradient(transparent,rgba(20,16,8,.85))}
+.phocap{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:#fff;font-weight:700;line-height:1.6}
+.phocap span{color:rgba(255,255,255,.72);font-size:12px;font-weight:600}
+@media(max-width:880px){.hcard{grid-template-columns:1fr}.hcard .photo{min-height:340px}}
+
+.seclbl{font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;margin:0 0 8px;display:flex;align-items:center;gap:12px}
+.seclbl::after{content:"";flex:1;height:1px;background:var(--line)}
+.sechint{font-size:15px;color:var(--ink-soft);margin:0 0 22px}
+section{padding:9px 0}
+
+/* ===== БЛОК 3 — интерактив «ситуация → делаем → результат» ===== */
+.tabcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 26px}
+.tabcard .head{font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:20px;color:var(--ink);line-height:1.5;margin-bottom:20px;padding:0 0 18px;border-bottom:1px solid var(--line);text-align:center}
+.tabcard .head .hl{color:#124463}
+.tabgrid{display:grid;grid-template-columns:350px 1fr;gap:12px;align-items:start}
+.tabgrid .col{display:flex;flex-direction:column;gap:6px}
+.tabcard .coltitle{background:rgba(244,234,212,.4);border:none;border-radius:13px;padding:10px 22px;font-size:20px;font-weight:600;color:var(--ink);text-align:center;line-height:1.5;margin-bottom:14px}
+.tabcard .coltitle .hl{color:#124463}
+.tabgrid .slot{background:none;border:none;box-shadow:none;padding:0;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start}
+.tabgrid .ent{position:relative;margin-left:20px;text-align:left;border:1px solid var(--line);background:rgba(255,253,248,.5);border-radius:12px;padding:14px 16px;cursor:pointer;font-size:16px;font-weight:600;color:var(--ink-soft);line-height:1.35;transition:.15s;font-family:inherit}
+.tabgrid .ent.on::before{content:"▶";position:absolute;left:-20px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--hoodie)}
+.tabgrid .ent:hover{background:var(--brass-wash)}
+.tabgrid .ent.on{background:linear-gradient(135deg,#1a6088,#1f7ac0);color:#fff;border-color:transparent}
+#pains .col .ent:not(.on):not(.v4head)::before{content:'';position:absolute;left:-21px;top:50%;transform:translateY(-50%);width:12px;height:14px;opacity:.5;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 14'><path d='M2,1.5 L10.5,7 L2,12.5 Z' fill='none' stroke='%23B41F2A' stroke-width='1.4' stroke-linejoin='round'/></svg>") no-repeat center/contain}
+@media(max-width:760px){.tabgrid{grid-template-columns:1fr}}
+.blocks{display:flex;flex-direction:column}
+.blk{display:grid;grid-template-columns:80px 1fr;gap:15px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)}
+.blocks .blk:first-child{padding-top:0} .blocks .blk:last-child{border-bottom:none}
+.blk .mk{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.blk .ill{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex:none}
+.blk.s-sit .ill{background:var(--coral-wash)} .blk.s-do .ill{background:var(--brass-wash)} .blk.s-res .ill{background:var(--teal-wash)}
+.blk .lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--ink-soft)}
+.blk .bd{font-size:15px;line-height:1.55;color:var(--ink-soft)} .blk .bd b{color:var(--ink)}
+@media(max-width:560px){.blk{grid-template-columns:1fr;gap:10px}.blk .mk{flex-direction:row;justify-content:flex-start}}
+
+.brass{--c:var(--brass);--cw:var(--brass-wash)}
+.teal{--c:var(--teal);--cw:var(--teal-wash)}
+.coral{--c:var(--coral);--cw:var(--coral-wash)}
+
+/* ===== PRODUCTS ===== */
+.b4card{background:none;border:none;box-shadow:none;padding:0}
+.b4card .head{font-family:'Geologica',sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,36px);letter-spacing:-.01em;color:var(--ink);line-height:1.1;margin-bottom:26px;display:flex;align-items:center;justify-content:center;gap:26px}
+.b4card .head::before,.b4card .head::after{content:'';flex:1;height:2px;background:var(--line);border-radius:2px}
+.b4card .head .hl,.tabcard .head .hl{color:#124463}
+.cat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start}
+@media(max-width:820px){.cat{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cat{grid-template-columns:1fr}}
+.pc{background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:18px 19px;display:flex;flex-direction:column;transition:.2s}
+.pc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pc .ic{width:44px;height:44px;border-radius:12px;background:#e3eef7;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;flex:none}
+.pc h3{font-family:'Geologica',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1.18;color:var(--ink)}
+.pc .desc{font-size:13.6px;color:var(--ink-soft);margin:8px 0 12px;flex:1;line-height:1.5} .pc .desc b{color:var(--ink)}
+.pc .resbox{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 11px;margin-bottom:13px}
+.pc .res{font-size:12.5px;color:var(--ink-faint);line-height:1.45} .pc .res b{color:#124463}
+.pc .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.pc .price{font-family:'Geologica',sans-serif;font-weight:600;font-size:16px;color:var(--ink)}
+.pc .price.soft{font-size:13.5px;color:var(--ink-soft);font-weight:500;font-family:'Hanken Grotesk'}
+.pc .price .per{font-family:'Hanken Grotesk';font-size:12px;color:var(--ink-faint);font-weight:500}
+.pc .link{font-size:12.5px;font-weight:700;color:#1f7ac0;text-decoration:none;white-space:nowrap}
+.pc .link:hover{text-decoration:underline}
+.cat .pc.flag{padding:0;overflow:hidden}
+.cat #p-videnie{grid-column:1/-1}
+.pc.flag:hover{transform:none;box-shadow:var(--shadow)}
+.pc.flag .vhead{background:linear-gradient(180deg,#1c6ea4,#0f3a56);padding:14px 28px;text-align:center}
+.pc.flag .vhead .vdesc{font-family:'Geologica',sans-serif;font-weight:700;font-size:clamp(16px,1.7vw,20px);letter-spacing:-.01em;color:#fff;line-height:1.28;margin:0;max-width:900px;margin-inline:auto}
+.pc.flag .vhead .vsub{font-size:15px;color:rgba(255,255,255,.85);line-height:1.45;margin:8px auto 0;max-width:820px}
+#p-videnie .vhead .vdesc{font-size:clamp(17px,2.2vw,26px);white-space:nowrap;max-width:none}
+#p-videnie .vhead .vsub{font-size:16.5px}
+/* раскрытие в пару абзацев (карточки кроме Видения) */
+.pc.flag .vbody{display:flex;flex-direction:column;gap:10px;padding:16px;background:#fff}
+.pc.flag .vbody p{margin:0;font-size:13.8px;line-height:1.58;color:var(--ink);padding:14px 18px;border-radius:12px;background:linear-gradient(95deg,rgba(var(--fmt),.18),rgba(var(--fmt),.015) 82%)}
+.pc.flag .vbody p b{color:rgb(var(--fmtb));font-weight:700}
+.pc.flag .vmore{display:none;flex-direction:column;gap:10px;margin-top:0}
+.pc.flag.open .vmore{display:flex}
+.pc.flag .vtoggle{width:100%;border:none;cursor:pointer;font-family:'Geologica',sans-serif;font-size:13px;font-weight:700;letter-spacing:.4px;text-decoration:none;color:rgb(var(--fmtb));padding:13px;background:rgba(var(--fmt),.22);display:flex;align-items:center;justify-content:center;gap:7px;transition:.15s}
+.pc.flag .vtoggle:hover{background:rgba(var(--fmt),.32)}
+.pc.flag .vtoggle.vlink::after{border-width:5px 0 5px 7px;border-color:transparent transparent transparent rgb(var(--fmtb));transform:none}
+#p-videnie .vhead{background:linear-gradient(180deg,rgba(var(--fmt),.15),rgba(var(--fmt),0));padding-top:30px;padding-bottom:30px}
+#p-videnie .vmore-embed{display:none;padding:0}
+.pc.flag.open #p-videnie .vmore-embed,#p-videnie.open .vmore-embed{display:block}
+.vid-frame{width:100%;height:1600px;border:none;background:transparent}
+#p-videnie .vhead .vdesc{color:var(--ink)}
+#p-videnie .vhead .vsub{color:var(--ink);margin-top:14px}
+#p-videnie .vtoggle{padding:9px 26px;justify-content:center;background:linear-gradient(180deg,rgba(28,110,164,0),rgba(28,110,164,.15))}
+#p-videnie .vtoggle::after{content:'▾▾▾';width:auto;height:auto;border:none;font-size:19px;letter-spacing:4px;line-height:1;margin-top:-2px}
+.pc.flag .vtoggle::after{content:'';width:0;height:0;flex:none;border-style:solid;border-width:7px 5px 0 5px;border-color:rgb(var(--fmtb)) transparent transparent transparent;transition:transform .2s}
+.pc.flag.open .vtoggle::after{transform:rotate(180deg)}
+/* цвета шапок и акценты по форматам */
+.pc.flag.fmt-kontur{--fmt:138,99,210;--fmtb:74,42,146;--peak:.15}
+.pc.flag.fmt-mostik{--fmt:178,58,72;--fmtb:140,22,34;--peak:.15}
+.pc.flag.fmt-business{--fmt:190,150,60;--fmtb:120,84,16;--peak:.15}
+.pc.flag.fmt-consult{--fmt:42,145,137;--fmtb:18,84,78;--peak:.15}
+#p-videnie{--fmt:28,110,164;--fmtb:15,58,86;background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(28,110,164,.10);border:1px solid rgba(28,110,164,.30)}
+.pc.flag:not(#p-videnie){background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(var(--fmt),.10);border:1px solid rgba(var(--fmt),.30)}
+.pc.flag:not(#p-videnie) .vbody{background:none}
+.pc.flag[class*="fmt-"] .vhead{background:linear-gradient(180deg,rgba(var(--fmt),var(--peak)),rgba(var(--fmt),0))}
+.pc.flag[class*="fmt-"] .vhead .vsub{color:var(--ink-soft);margin-top:6px}
+.pc.flag[class*="fmt-"] .vtoggle{background:linear-gradient(180deg,rgba(var(--fmt),0),rgba(var(--fmt),var(--peak)))}
+.pc.flag[class*="fmt-"] .vtoggle:hover{background:linear-gradient(180deg,rgba(var(--fmt),.05),rgba(var(--fmt),.38))}
+.pc.flag[class*="fmt-"] .vhead .vdesc{color:var(--ink)}
+.pc.flag[class*="fmt-"] .vhead .vsub{color:var(--ink-soft)}
+.pc.flag .vparts{display:grid;grid-template-columns:repeat(4,1fr)}
+.pc.flag .vpart{position:relative;display:flex;flex-direction:column;gap:7px;min-height:163px;justify-content:space-between;padding:16px 18px;background:linear-gradient(to right,#cfe2f2,var(--card))}
+.pc.flag .vpart .vsn{position:absolute;top:5px;right:12px;font-family:'Geologica',sans-serif;font-weight:800;font-size:40px;line-height:1;color:rgba(18,68,99,.15);pointer-events:none}
+.pc.flag .vpart b{font-family:'Geologica',sans-serif;font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em;line-height:1.22}
+.pc.flag .vpart span{font-size:13.5px;color:var(--ink);line-height:1.7}
+@media(max-width:760px){.pc.flag .vparts{grid-template-columns:1fr}}
+
+/* контур секции + заголовок-шапка внутри */
+.secwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:26px 28px}
+#faq .secwrap{background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(31,122,192,.09);border-color:rgba(31,122,192,.28);box-shadow:none}
+.inhead{font-family:'Geologica',sans-serif;font-weight:700;font-size:clamp(17px,2vw,20px);color:var(--ink);line-height:1.3;text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+#start .inhead,section[data-block="6"] .inhead,#faq .inhead,section[data-block="8"] .inhead,section[data-block="9"] .inhead,section[data-block="10"] .inhead{font-weight:800;font-size:clamp(22px,2.8vw,32px);letter-spacing:-.01em;line-height:1.1;margin-top:15px;margin-bottom:24px;padding-bottom:0;border-bottom:none;display:flex;align-items:center;justify-content:center;gap:26px}
+#start .inhead::before,#start .inhead::after,section[data-block="6"] .inhead::before,section[data-block="6"] .inhead::after,#faq .inhead::before,#faq .inhead::after,section[data-block="8"] .inhead::before,section[data-block="8"] .inhead::after,section[data-block="9"] .inhead::before,section[data-block="9"] .inhead::after,section[data-block="10"] .inhead::before,section[data-block="10"] .inhead::after{content:'';flex:1;height:2px;background:var(--line);border-radius:2px}
+section[data-block="6"] .secwrap{background:none;border:none;box-shadow:none;padding:0}
+
+/* ===== ROUTE ===== */
+.route{background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(31,122,192,.09);border:1px solid rgba(31,122,192,.28);box-shadow:none;border-radius:var(--r);padding:26px 28px}
+.route .btns,.final .btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.route .btn,.final .btn{position:relative;padding:15px 37px;background:rgba(31,122,192,.12);border:none;border-radius:13px;color:var(--ink);font-family:'Geologica',sans-serif;font-weight:600;font-size:16.5px}
+.route .btn::after,.final .btn::after{content:'';position:absolute;inset:5px;border:1.5px solid rgba(31,122,192,.55);border-radius:8px;pointer-events:none}
+.route .btn:hover,.final .btn:hover{filter:brightness(.97);transform:translateY(-1px)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+@media(max-width:680px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:16px 18px;background:linear-gradient(to right,#cfe2f2,var(--card));border:1px solid rgba(31,122,192,.28);border-radius:13px}
+.step .n{position:absolute;top:2px;right:12px;width:auto;height:auto;border-radius:0;background:none;color:rgba(18,68,99,.15);font-family:'Geologica',sans-serif;font-weight:800;font-size:42px;line-height:1;display:block}
+.step h4{font-family:'Geologica',sans-serif;font-size:15.5px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px;color:var(--ink)}
+.step p{font-size:13.5px;color:var(--ink);line-height:1.5}
+.routenote{font-size:13px;color:var(--ink-faint);margin-top:16px;padding-left:2px}
+
+/* ===== FOR WHOM ===== */
+.fw{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:680px){.fw{grid-template-columns:1fr}}
+.fwcard{position:relative;background:var(--card-2);border:1px solid var(--line);border-radius:13px;padding:22px 24px}
+.fwcard.yes{background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(42,145,137,.10);border-color:rgba(42,145,137,.32)}
+.fwcard.no{background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(178,58,72,.09);border-color:rgba(178,58,72,.30)}
+.fwcard.yes h3{color:rgb(18,84,78)}
+.fwcard.no h3{color:rgb(140,22,34)}
+.fwcard::after{position:absolute;top:16px;right:18px;font-size:22px;line-height:1}
+.fwcard.yes::after{content:"✅"}
+.fwcard.no::after{content:"❌"}
+.fwcard h3{font-family:'Geologica',sans-serif;font-weight:600;font-size:18px;margin-bottom:15px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+.fwcard .ti{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.fwcard.yes .ti{background:#e3eef7;color:#124463}
+.fwcard.no .ti{background:var(--line-2);color:var(--ink-soft)}
+.fwlist{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fwlist li{font-size:14px;font-weight:700;padding:12px 16px;border-radius:11px;line-height:1.5}
+.fwcard.yes .fwlist li{color:rgb(18,84,78)}
+.fwcard.no .fwlist li{color:rgb(140,22,34)}
+.fwcard.yes .fwlist li{background:linear-gradient(95deg,rgba(42,145,137,.16),rgba(42,145,137,.02) 82%)}
+.fwcard.no .fwlist li{background:linear-gradient(95deg,rgba(178,58,72,.15),rgba(178,58,72,.02) 82%)}
+
+/* ===== FAQ ===== */
+.faq{display:flex;flex-direction:column;gap:11px}
+details.q{background:linear-gradient(95deg,rgba(31,122,192,.14),rgba(31,122,192,.02) 82%);border:1px solid rgba(31,122,192,.28);border-radius:13px;padding:0;overflow:hidden;transition:.2s}
+details.q[open]{border-color:#1f7ac0}
+details.q summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:700;font-size:15.5px;color:#124463;
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .plus{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:15px;color:#124463;transition:.2s}
+details.q[open] summary .plus{transform:rotate(45deg);border-color:#1f7ac0}
+details.q .a{padding:0 22px 19px;font-size:14.5px;color:var(--ink-soft);line-height:1.58}
+details.q .a p{margin:0 0 11px} details.q .a p:last-child{margin-bottom:0}
+details.q .a b{color:var(--ink);font-weight:600}
+
+/* ===== TRUST (почему я) ===== */
+.tcard{background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),rgba(190,150,60,.10);border:1px solid rgba(190,150,60,.30);border-radius:var(--r);padding:26px 28px;box-shadow:var(--shadow)}
+.tcard-split{display:grid;grid-template-columns:2fr 1fr;gap:30px;align-items:stretch}
+.tcard-split .tright{border-left:1px solid var(--line);padding-left:28px}
+.metrics-col{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+@media(max-width:760px){.tcard-split{grid-template-columns:1fr;gap:18px}.tcard-split .tright{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:20px}}
+.tcard h3{font-family:'Geologica',sans-serif;font-weight:600;font-size:19px;margin-bottom:14px;letter-spacing:-.01em}
+.tcard h3.leadh{font-size:clamp(20px,2.5vw,26px);line-height:1.18;margin-bottom:10px}
+.tcard h3.leadh .em{color:#124463}
+.tcard .leadp{font-size:14.8px;color:var(--ink);margin-bottom:13px;line-height:1.55;background:linear-gradient(95deg,rgba(190,150,60,.16),rgba(190,150,60,.02) 82%);padding:14px 18px;border-radius:12px}
+.tcard .leadp b{color:rgb(120,84,16);font-weight:700}
+.tcard .leadp-final{font-size:17.5px;line-height:1.4;margin-bottom:0}
+.tcard .leadp-final b{color:var(--ink)}
+/* reviews */
+.revlbl{font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:30px 0 16px;display:flex;align-items:center;gap:12px}
+.revlbl::after{content:"";flex:1;height:1px;background:var(--line)}
+.revs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.revs{grid-template-columns:1fr}}
+.rev{position:relative;overflow:hidden;background:rgba(255,253,248,.5);border:1px solid rgba(var(--rc),.30);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.rev::before{content:'';position:absolute;inset:0;background:radial-gradient(560px 260px at 8% -15%,rgba(var(--rc),.30),transparent 62%);pointer-events:none;z-index:0}
+.rev>*{position:relative;z-index:1}
+.revs .rev:nth-child(1){--rc:138,99,210}
+.revs .rev:nth-child(2){--rc:178,58,72}
+.revs .rev:nth-child(3){--rc:190,150,60}
+.revs .rev:nth-child(4){--rc:42,145,137}
+.rev .rhead{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.rev .ava{width:60px;height:60px;border-radius:50%;background:#e3eef7;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Geologica',sans-serif;font-weight:700;font-size:18px;color:#124463;flex:none;overflow:hidden}
+.rev .ava img{width:100%;height:100%;object-fit:cover}
+.rev .rname{font-weight:700;font-size:18px;color:var(--ink)}
+.rev .rrole{font-size:12.5px;color:var(--ink-faint);margin-top:1px}
+.rev .rquote{font-size:14.6px;color:var(--ink-soft);line-height:1.56;flex:1}
+.rev .rquote p{margin:0 0 10px}
+.rev .rquote p:last-child{margin-bottom:0}
+.rev .rbadge{align-self:flex-start;margin-top:14px;font-family:'Hanken Grotesk',sans-serif;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);background:var(--card-2);border:1px dashed var(--line);padding:3px 9px;border-radius:12px}
+.tlist{list-style:none;display:flex;flex-direction:column;gap:12px}
+.tlist li{font-size:14.7px;color:var(--ink-soft);padding-left:26px;position:relative}
+.tlist li::before{content:"";position:absolute;left:2px;top:8px;width:9px;height:9px;border-radius:3px;background:#1f7ac0}
+.tright .tlist li{padding:13px 16px;background:rgba(255,253,248,.6);border:1px solid rgba(190,150,60,.32);border-radius:12px;font-size:13.8px;color:var(--ink);line-height:1.45}
+.tright .tlist li::before{display:none}
+.tcard-split .tright{display:flex;flex-direction:column}
+.tright .chan-link{display:block;text-decoration:none;text-align:center;margin-bottom:16px}
+.tright .chan-tg{display:block;margin-bottom:10px}
+.tright .chan-tg svg{display:inline-block;vertical-align:middle;border-radius:50%;box-shadow:0 2px 8px rgba(34,158,217,.35)}
+.tright .chan-name{display:block;font-family:'Unbounded',sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em;line-height:1.2;color:var(--ink);text-decoration:none}
+.tright .chan-name .dot{color:#B41F2A}
+.tright .chan-sub{display:block;font-size:12px;color:var(--ink-soft);margin-top:7px;text-decoration:none}
+.tright .intro-card{flex:1;display:flex;flex-direction:column;text-decoration:none;background:rgba(255,253,248,.6);border:1px solid rgba(190,150,60,.32);border-radius:12px;padding:15px 16px;transition:.15s}
+.tright .intro-body{flex:1}
+.tright .intro-body p{font-size:12.8px;color:var(--ink-soft);line-height:1.5;margin:0 0 9px}
+.tright .intro-body p:last-child{margin-bottom:0}
+.tright .intro-more{margin-top:14px}
+.tright .intro-card:hover{border-color:rgba(190,150,60,.55)}
+.tright .intro-h{font-family:'Geologica',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:rgb(120,84,16);margin-bottom:8px}
+.tright .intro-p{font-size:13px;color:var(--ink-soft);line-height:1.52;margin:0}
+.tright .intro-more{display:inline-block;margin-top:11px;font-family:'Geologica',sans-serif;font-weight:700;font-size:13px;color:#124463;background:linear-gradient(95deg,rgba(190,150,60,.08),rgba(190,150,60,.01) 82%);padding:11px 16px;border-radius:11px}
+
+/* ===== FINAL ===== */
+.final{background:rgba(255,253,248,.5);border:1px solid var(--line);border-radius:24px;padding:34px 40px;text-align:center;
+  color:var(--ink);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(1000px 460px at 50% -16%,rgba(31,122,192,.34),transparent 64%);pointer-events:none}
+.final h2{font-family:'Geologica',sans-serif;font-weight:800;font-size:clamp(26px,4vw,40px);color:#fff;letter-spacing:-.02em;position:relative}
+.final p{color:var(--ink-soft);font-size:29px;line-height:1.4;margin:16px auto 28px;position:relative}
+.final .btn-pri{background:linear-gradient(135deg,#123131,#1f7ac0);color:#fff;position:relative}
+.final .btn-pri:hover{filter:brightness(1.12)}
+.final .fmicro{color:#9aa6a0;font-size:13px;margin-top:16px;position:relative}
+
+/* ===== CTA блок 2 (светлая гамма, компактный; кнопки слева, подпись справа) ===== */
+.cta2l{border-radius:20px;padding:26px 34px;display:flex;align-items:center;justify-content:flex-end;gap:30px;flex-wrap:wrap;box-shadow:var(--shadow);position:relative;z-index:5}
+.tip{position:relative}
+.tip::after{content:attr(data-tip);position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%);
+  background:linear-gradient(150deg,#262d2b,#1b211f);color:#ede6d6;font-size:12.5px;font-weight:500;line-height:1.45;
+  padding:10px 13px;border-radius:10px;width:max-content;max-width:280px;text-align:center;white-space:normal;
+  opacity:0;pointer-events:none;transition:opacity .18s;box-shadow:var(--shadow-lg);z-index:50}
+.tip:hover::after{opacity:1}
+/* блок 1 — закреплённая шапка с навигацией */
+section[data-block="1"]{position:sticky;top:0;z-index:100;padding-top:0;padding-bottom:9px}
+section[data-block="1"] .cta2l{border-radius:0 0 20px 20px;border-top:none;align-items:stretch;padding:13px 34px;gap:35px}
+section[data-block="1"] .btn{padding-top:10px;padding-bottom:10px}
+.topnav{flex:1;display:flex;align-items:center;justify-content:space-between;position:relative}
+.topnav a{display:flex;align-items:center;justify-content:center;padding:6px 0;font-family:'Geologica',sans-serif;font-size:16px;font-weight:700;color:var(--ink-soft);text-decoration:none;transition:.15s;position:relative;z-index:2}
+.topnav .dot{flex:0 0 auto;width:4px;height:4px;border-radius:50%;background:var(--ink-faint)}
+.topnav a .coord{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink-faint);transition:.15s}
+/* точки-разделители — теперь .dot в разметке */
+.topnav a:hover:not(.active){color:#1f7ac0}
+.topnav a.active{color:#124463;font-weight:700}
+.topnav a.active .coord{color:var(--hoodie)}
+.navthumb{display:none}
+.navthumb::before{content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;background:#1f7ac0}
+.navthumb::after{content:"";position:absolute;top:-2px;left:0;right:0;height:2px;background:#1f7ac0}
+@media(max-width:760px){.topnav{display:none}}
+.cta2l .btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta2l .note{font-size:15.5px;color:var(--ink);line-height:1.45;flex:1 1 300px;min-width:240px}
+.cta2l .btn-pri{color:#fff}
+.cta2l .btn-pri:hover{transform:translateY(-2px);filter:brightness(.93)}
+.cta2l .btn-ghost{background:#fff}
+.cta2l .btn-ghost:hover{transform:translateY(-2px)}
+.cta2l.l1{background:var(--card);border:1px solid var(--line)}
+/* Telegram — градиент тёмно-синий → синий; «Свяжитесь» — 5 цветов ободка */
+.cta2l .btn-pri{background:linear-gradient(135deg,#123131,#1f7ac0)}
+.cta2l .btn-pri:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.cta2l .btn-ghost{background:#fff;border-color:var(--ink);color:var(--ink)}
+.cta2l .btn-ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+@media(max-width:680px){.cta2l{flex-direction:column;align-items:flex-start;gap:18px}}
+
+/* ===== FOOTER ===== */
+footer{padding:46px 0 70px;text-align:center;color:var(--ink-faint);font-size:13.5px}
+
+/* номера блоков в левом поле (технически, для работы) */
+[data-block]{position:relative}
+[data-block]::before{content:attr(data-block);position:absolute;left:-46px;top:2px;
+  font-family:'Geologica',sans-serif;font-weight:700;font-size:14px;color:var(--ink-faint);opacity:.45}
+@media(max-width:1200px){[data-block]::before{display:none}}
+footer a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+footer a:hover{color:var(--brass-deep)}
+.flinks{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;margin-bottom:16px}
+
+</style>
+</head>
+<body>
+<div class="bgwash"></div>
+
+<div class="wrap">
+
+  <!-- NAV-шапка (закреплена) -->
+  <section data-block="1">
+    <div class="cta2l l1 rv">
+      <nav class="topnav">
+        <a href="#pains">Ситуации</a>
+        <span class="dot"></span>
+        <a href="#products">Форматы</a>
+        <span class="dot"></span>
+        <a href="#start">Как начать</a>
+        <span class="dot"></span>
+        <a href="#faq">Вопросы</a>
+        <span class="dot"></span>
+        <a href="#contact">Контакт</a>
+      </nav>
+      <div class="btns">
+        <a class="btn btn-pri" href="https://t.me/AskFilippov">Написать в Telegram</a>
+        <a class="btn btn-ghost" href="https://t.me/AskFilippov">Назначить встречу</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO (под CTA) -->
+  <header class="hero" data-block="2">
+    <div class="hcard rv">
+      <div class="txt">
+        <h1 class="t">Цели есть — а <span class="em">азарта</span> нет</h1>
+        <ul class="herobul">
+          <li><span class="ic">😰</span>Амбициозные достижения не манят, а давят и вызывают тревогу?</li>
+          <li><span class="ic">🗿</span>Не помните, когда в последний раз просыпались с аппетитом к работе?</li>
+          <li><span class="ic">🧩</span>Чувствуете, что в пазле жизни есть недостающий элемент, но какой?</li>
+        </ul>
+        <p class="heroanswer">Всё вернётся с ответом на вопрос <span class="em">«зачем»</span>, а найти его поможет ясная картина будущего — <span class="em">Видение</span></p>
+      </div>
+      <div class="photo">
+        <img src="photo.jpg" alt="Дмитрий Филиппов" width="640" height="640">
+        <div class="cap"><div class="phocap">Дмитрий Филиппов<br><span>методолог · консультант</span></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAINS -->
+  <section id="pains" data-block="3">
+    <div class="tabcard rv">
+      <div class="tabgrid">
+        <div class="col" id="v4col"></div>
+        <div class="slot" id="v4slot"></div>
+      </div>
+    </div>
+  </section>
+  <!-- фильтры искажения для языков пламени (ось «Исполнение») -->
+  <svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true">
+    <filter id="flameWarp1" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.045" numOctaves="2" seed="3" result="n">
+        <animate attributeName="baseFrequency" dur="20s" values="0.009 0.045;0.014 0.06;0.008 0.04;0.009 0.045" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feComponentTransfer in="n" result="nh"><feFuncG type="linear" slope="0" intercept="0.5"/></feComponentTransfer>
+      <feDisplacementMap in="SourceGraphic" in2="nh" xChannelSelector="R" yChannelSelector="G" scale="14">
+        <animate attributeName="scale" dur="20s" values="10;19;13;10" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
+    <filter id="flameWarp2" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.05" numOctaves="2" seed="17" result="n">
+        <animate attributeName="baseFrequency" dur="22s" values="0.011 0.05;0.016 0.064;0.01 0.044;0.011 0.05" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feComponentTransfer in="n" result="nh"><feFuncG type="linear" slope="0" intercept="0.5"/></feComponentTransfer>
+      <feDisplacementMap in="SourceGraphic" in2="nh" xChannelSelector="R" yChannelSelector="G" scale="14">
+        <animate attributeName="scale" dur="22s" values="12;20;11;12" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
+    <filter id="flameWarp3" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.042" numOctaves="2" seed="29" result="n">
+        <animate attributeName="baseFrequency" dur="17s" values="0.008 0.042;0.013 0.058;0.0075 0.038;0.008 0.042" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feComponentTransfer in="n" result="nh"><feFuncG type="linear" slope="0" intercept="0.5"/></feComponentTransfer>
+      <feDisplacementMap in="SourceGraphic" in2="nh" xChannelSelector="R" yChannelSelector="G" scale="14">
+        <animate attributeName="scale" dur="17s" values="11;18;14;11" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
+  </svg>
+  <style>
+    #pains .tabcard{background:none;border:none;box-shadow:none;padding:0}
+    #pains .tabgrid .slot h4{margin:0 0 12px;font-size:19px;color:#124463}
+    #pains .v4head{margin-left:0;min-height:78px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;font-weight:700;font-family:'Geologica',sans-serif;font-size:20px;line-height:1.3}
+    #pains .v4head:hover{background:var(--card)}
+    #pains .v4head .hl{color:#124463}
+    #pains .col .ent .i{margin-right:9px}
+    #pains .slot{gap:12px}
+    #pains .v4box{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(255,253,248,.5);height:275px}
+    #pains .v3p{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:10px 18px 20px;gap:3px}
+    #pains .v3p::after{content:'';position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(to bottom, transparent 55%, rgba(180,31,42,.28) 100%);pointer-events:none}
+    /* ось «Исполнение» (ax-1): нижняя кромка градиента — языки пламени */
+    #pains .v4box .v3p{overflow:hidden}
+    #pains .v4box .v3p::before{content:'';position:absolute;left:0;right:0;bottom:0;height:42%;background:radial-gradient(58% 150% at 50% 100%,rgba(255,202,82,0.58) 0%,rgba(250,140,40,0.26) 34%,rgba(250,130,32,0.07) 58%,rgba(250,130,32,0) 74%);pointer-events:none;z-index:0}
+    #pains .v4box .v3p::after{background-position:bottom center;background-size:100% 49%;background-repeat:no-repeat;transform-origin:bottom center;animation:flameBreath 14s ease-in-out infinite;will-change:transform;z-index:0}
+    #pains .v4box .v3p:nth-child(1)::after{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'><defs><linearGradient id='f1' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='rgb(214,36,28)' stop-opacity='0'/><stop offset='0.36' stop-color='rgb(233,56,28)' stop-opacity='0.16'/><stop offset='0.68' stop-color='rgb(250,126,30)' stop-opacity='0.36'/><stop offset='0.88' stop-color='rgb(255,176,48)' stop-opacity='0.55'/><stop offset='1' stop-color='rgb(255,214,90)' stop-opacity='0.66'/></linearGradient></defs><path fill='url(%23f1)' d='M0,200 C10,200 22,180 23,174 C26,180 28,192 33,192 C42,192 50,162 53,150 C54,162 66,188 77,188 C88,188 99,133 101,113 C103,133 111,177 120,177 C128,177 135,115 137,89 C139,115 144,170 150,170 C155,170 159,121 162,99 C163,121 176,173 187,173 C200,173 214,133 215,117 C218,133 224,171 232,171 C246,171 262,87 262,50 C266,87 268,174 273,174 C286,174 300,116 301,93 C304,116 311,170 319,170 C332,170 346,100 347,69 C350,100 356,173 363,173 C373,173 385,76 386,35 C389,76 389,173 391,173 C402,173 414,106 416,77 C418,106 427,171 436,171 C443,171 450,73 451,30 C454,73 457,172 462,172 C468,172 473,113 476,87 C477,113 491,174 503,174 C506,174 506,80 510,41 C510,80 525,172 537,172 C541,172 543,118 546,94 C547,118 565,173 580,173 C587,173 592,111 594,85 C596,111 605,172 613,172 C616,172 615,89 619,53 C619,89 633,173 645,173 C658,173 672,118 673,95 C676,118 680,172 686,172 C690,172 690,80 694,41 C694,80 713,174 729,174 C742,174 757,106 758,78 C761,106 766,170 772,170 C784,170 798,115 799,90 C802,115 807,171 813,171 C822,171 832,124 833,103 C836,124 843,170 851,170 C861,170 872,147 874,135 C876,147 887,181 897,181 C902,181 906,157 908,146 C910,157 919,185 927,185 C930,185 931,151 935,135 C935,151 949,193 960,193 C963,193 963,177 967,170 C967,177 985,200 1000,200 Z'/></svg>")}
+    #pains .v4box .v3p:nth-child(2)::after{animation-delay:-3s;background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'><defs><linearGradient id='f2' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='rgb(214,36,28)' stop-opacity='0'/><stop offset='0.36' stop-color='rgb(233,56,28)' stop-opacity='0.16'/><stop offset='0.68' stop-color='rgb(250,126,30)' stop-opacity='0.36'/><stop offset='0.88' stop-color='rgb(255,176,48)' stop-opacity='0.55'/><stop offset='1' stop-color='rgb(255,214,90)' stop-opacity='0.66'/></linearGradient></defs><path fill='url(%23f2)' d='M0,200 C13,200 28,173 29,163 C32,173 38,193 45,193 C48,193 49,166 52,155 C53,166 64,187 73,187 C85,187 98,155 99,144 C102,155 109,179 118,179 C127,179 137,139 139,124 C141,139 153,172 164,172 C174,172 185,138 187,123 C189,138 197,170 206,170 C210,170 213,119 215,97 C217,119 225,172 233,172 C238,172 239,124 243,103 C243,124 263,171 279,171 C286,171 291,127 294,108 C295,127 306,172 316,172 C320,172 321,115 325,91 C325,115 342,170 356,170 C360,170 361,112 365,87 C365,112 383,173 398,173 C406,173 413,103 415,73 C417,103 422,174 427,174 C440,174 455,98 456,67 C459,98 462,170 467,170 C477,170 487,72 489,29 C491,72 502,172 512,172 C516,172 519,97 522,65 C523,97 536,170 547,170 C551,170 553,114 557,89 C557,114 572,171 585,171 C596,171 608,88 610,52 C612,88 618,171 624,171 C634,171 644,81 646,42 C648,81 656,174 664,174 C675,174 687,128 687,108 C691,128 691,173 694,173 C699,173 702,124 705,104 C706,124 714,174 721,174 C728,174 734,128 736,109 C738,128 743,171 749,171 C754,171 758,121 761,100 C762,121 776,173 788,173 C793,173 798,116 800,92 C802,116 809,173 816,173 C820,173 821,134 825,117 C825,134 844,174 859,174 C872,174 887,151 888,139 C891,151 891,182 894,182 C899,182 902,149 905,134 C906,149 919,188 931,188 C944,188 959,164 960,152 C963,164 970,195 977,195 C984,195 990,189 992,186 C994,189 996,200 1000,200 Z'/></svg>")}
+    #pains .v4box .v3p:nth-child(3)::after{animation-delay:-5.5s;background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'><defs><linearGradient id='f3' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='rgb(214,36,28)' stop-opacity='0'/><stop offset='0.36' stop-color='rgb(233,56,28)' stop-opacity='0.16'/><stop offset='0.68' stop-color='rgb(250,126,30)' stop-opacity='0.36'/><stop offset='0.88' stop-color='rgb(255,176,48)' stop-opacity='0.55'/><stop offset='1' stop-color='rgb(255,214,90)' stop-opacity='0.66'/></linearGradient></defs><path fill='url(%23f3)' d='M0,200 C9,200 17,186 19,181 C21,186 33,192 45,192 C56,192 68,155 69,141 C72,155 74,187 77,187 C93,187 112,127 112,104 C116,127 119,178 124,178 C135,178 148,138 149,124 C152,138 154,174 158,174 C162,174 164,133 167,116 C168,133 181,173 193,173 C206,173 222,134 223,118 C226,134 230,173 235,173 C239,173 240,113 244,88 C244,113 265,171 282,171 C290,171 297,114 299,89 C301,114 314,171 326,171 C338,171 351,94 353,61 C355,94 362,173 369,173 C376,173 382,85 384,47 C386,85 393,171 401,171 C416,171 433,72 434,29 C437,72 442,174 448,174 C459,174 470,96 472,63 C474,96 484,171 494,171 C503,171 513,122 515,101 C517,122 527,174 537,174 C545,174 553,90 555,55 C557,90 565,174 574,174 C589,174 606,94 606,60 C610,94 615,174 622,174 C627,174 628,105 632,76 C632,105 650,170 665,170 C668,170 668,83 672,45 C672,83 691,171 707,171 C718,171 730,107 731,80 C734,107 740,173 748,173 C760,173 774,123 775,103 C778,123 780,173 784,173 C801,173 821,101 821,71 C825,101 827,172 832,172 C842,172 853,138 855,123 C857,138 868,177 879,177 C889,177 900,145 901,129 C904,145 905,182 908,182 C916,182 923,150 925,134 C927,150 935,190 944,190 C958,190 976,178 976,170 C980,178 980,197 984,197 C986,197 987,184 989,179 C991,184 995,200 1000,200 Z'/></svg>")}
+    #pains .v4box .v3p:nth-child(1)::after{filter:url(#flameWarp1)}
+    #pains .v4box .v3p:nth-child(2)::after{filter:url(#flameWarp2)}
+    #pains .v4box .v3p:nth-child(3)::after{filter:url(#flameWarp3)}
+    @keyframes flameBreath{
+      0%{transform:scaleY(1)}
+      30%{transform:scaleY(1.1)}
+      60%{transform:scaleY(1.03)}
+      100%{transform:scaleY(1)}
+    }
+    @media(prefers-reduced-motion:reduce){#pains .v4box .v3p::after{animation:none}}
+    #pains .v3h{position:relative;z-index:1;font-family:'Geologica',sans-serif;font-size:24px;font-weight:700;color:var(--ink);line-height:1.3}
+    #pains .v3d{position:relative;z-index:1;font-size:14px;color:#3d4651;line-height:1.4}
+    #pains .concl{position:relative;display:flex;flex-direction:column;justify-content:center;border:none;border-radius:13px;padding:26px 32px;min-height:108px;margin-top:0;flex:1;background:rgba(244,234,212,.5)}
+    #pains .concl::after{content:'';position:absolute;inset:8px;border:1.5px solid rgba(178,140,60,.55);border-radius:8px;pointer-events:none}
+    #pains .concl .cb{position:relative;z-index:1;display:flex;flex-direction:column;text-align:center}
+    #pains .concl .cone{font-family:'Geologica',sans-serif;font-size:clamp(19px,2.2vw,25px);font-weight:800;line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
+    #pains .concl-ax0 .cone{font-size:clamp(18px,2.1vw,24px)}
+    #pains .concl .cone .hl{color:#124463}
+  </style>
+  <script>
+  (function(){
+    const D=[
+     {i:'🧭',l:'Смысл и направление',p:[{h:'Достиг цели — внутри пустота',d:'Шёл годами, дошёл — а вместо подъёма пустота. Куда теперь, непонятно.'},{h:'Живу одним днём, из года в год',d:'Всё внимание на ближний горизонт. Куда иду через 3–5 лет — ответа нет.'},{h:'Хватаюсь за всё сразу',d:'Десять направлений открыто, ни одно не доведено. Не выбираю главное.'}],c:'Собрать <span class="hl">Видение</span> — картину будущего, которая отвечает на <span class="hl">«зачем»</span> и возвращает <span class="hl">азарт</span>'},
+     {i:'⏳',l:'Исполнение и дисциплина',p:[{h:'Знаю что делать — но откладываю',d:'Знаю, что надо, но каждый день откладываю. Год прошёл — я на том же месте.'},{h:'Много учусь — а в деле тишина',d:'Курсы, книги, подкасты без конца, а на практике всё по-старому.'},{h:'Начинаю — и бросаю на полпути',d:'Загораюсь, берусь — и не довожу. Запал кончается раньше результата.'}],c:'Превратить бесцельное движение в <span class="hl">маршрут</span>: каждое действие — <span class="hl">к большой цели</span>'},
+     {i:'⚙️',l:'Бизнес и масштаб',p:[{h:'Бизнес держится на мне',d:'Я по уши в операционке, рост упёрся — следующего хода не вижу.'},{h:'Режу косты, но становится хуже',d:'Кризис, все режут — и я режу. Но легче не становится, ужимаюсь по кругу.'},{h:'Доход упёрся в потолок',d:'Работаю больше, а доход стоит. Не понимаю, как пробить следующий уровень.'}],c:'Союз людей, объединённых <span class="hl">одним Видением</span> — <span class="hl">рычаг</span>, который пробивает <span class="hl">потолок</span>'},
+     {i:'🤖',l:'AI и новые технологии',p:[{h:'Не вижу применения AI',d:'Пользуюсь каждый день, но чувствую — там в разы больше, а как достать не понимаю.'},{h:'Все рвут вперёд — а я отстал',d:'Вокруг кейсы и скорость, а я не успеваю. Кажется, поезд уходит без меня.'},{h:'Боюсь обесценивания навыков',d:'Кажется, скоро то, что я умею, перестанет стоить чего-либо.'}],c:'Видение и AI <span class="hl">усиливают друг друга</span>, новые знания сразу же <span class="hl">проверяются практикой</span>'},
+     {i:'🌀',l:'Идентичность и субъектность',p:[{h:'Реагирую НА, а не действую ОТ',d:'Мир меняется быстрее, чем я осмысляю. Реагирую на поток, теряю опору.'},{h:'Без роли не понимаю, кто я',d:'Вне должности и статуса теряюсь. Кажется, я — это только то, что делаю.'},{h:'Пора менять курс — страшно',d:'Чувствую, что текущее исчерпано, но всё построено на нём. Прыгнуть боюсь.'}],c:'<span class="hl">Видение</span> — опора вне ролей: возвращает <span class="hl">выбор</span>, <span class="hl">ответственность</span> и <span class="hl">огонь в глазах</span>'},
+     {i:'🔋',l:'Состояние и ресурс',p:[{h:'Выгорел, хотя всё получается',d:'Снаружи рост и успех, внутри — пусто и нет сил. Тяну на морально-волевых.'},{h:'Бизнес растёт — а дома отдаляюсь',d:'Всё ушло в дело, на семью не остаётся. Боюсь, что плачу не той ценой.'},{h:'Запас давно на нуле',d:'Держусь на морально-волевых. Энергии нет, а останавливаться нельзя.'}],c:'Образ будущего возвращает <span class="hl">ритм и энергию</span>, создавая <span class="hl">опору</span> для себя и близких людей'}
+    ];
+    const col=document.getElementById('v4col'),slot=document.getElementById('v4slot');
+    if(!col)return;
+    const hd=document.createElement('div');hd.className='ent v4head';hd.innerHTML='<span class="v4ht"><span class="hl">Видение</span> работает с<br>разными ситуациями</span>';col.append(hd);
+    const btns=[];
+    function show(n){btns.forEach((b,k)=>b.classList.toggle('on',k===n));const d=D[n];
+      slot.innerHTML='<div class="v4box ax-'+n+'">'+d.p.map(x=>'<div class="v3p"><span class="v3h">'+x.h+'</span><span class="v3d">'+x.d+'</span></div>').join('')+'</div><div class="concl concl-ax'+n+'"><div class="cb"><span class="cone">'+d.c+'</span></div></div>';}
+    D.forEach((d,n)=>{const b=document.createElement('button');b.className='ent';b.innerHTML='<span class="i">'+d.i+'</span> '+d.l;b.onclick=()=>show(n);btns.push(b);col.append(b);});
+    show(0);
+  })();
+  </script>
+
+  <!-- PRODUCTS -->
+  <section id="products" data-block="4">
+    <div class="b4card rv">
+      <div class="head">Форматы работы</div>
+      <div class="cat">
+
+        <article class="pc flag" id="p-videnie">
+          <div class="vhead">
+            <p class="vdesc">Создание и визуализация Видения — ясного образа будущего</p>
+            <p class="vsub">Отвечаем на вопрос «зачем», возвращаем азарт и создаём опору для правильного выбора каждый день</p>
+          </div>
+          <div class="vparts">
+            <div class="vpart"><span class="vsn">1</span><b>Моя история</b><span>Разбираем прожитое, восстанавливаем биографию год за годом — события, решения, поворотные точки.</span></div>
+            <div class="vpart"><span class="vsn">2</span><b>Сюжетные арки</b><span>Раскладываем жизнь на арки-сезоны — разбираем завязку, конфликт, кульминацию и финал, фиксируем выводы и рефлексию.</span></div>
+            <div class="vpart"><span class="vsn">3</span><b>Формирование Видения</b><span>Образ будущего собирается через ключевые вопросы — кем стал герой, что вокруг и какие эмоции он проживает.</span></div>
+            <div class="vpart"><span class="vsn">4</span><b>Проектирование будущего</b><span>Применяем Видение к далёким горизонтам и текущей ситуации — от арки до ежедневного капитанского мостика.</span></div>
+          </div>
+          <div class="vmore vmore-embed">
+            <iframe id="vidFrame" class="vid-frame" src="../videnie/embed.html" loading="lazy" title="Методология Видения через сюжетные арки"></iframe>
+          </div>
+          <button class="vtoggle" type="button">Подробнее</button>
+        </article>
+
+        <article class="pc flag fmt-kontur" id="p-kontur">
+          <div class="vhead">
+            <p class="vdesc">AI-Контур (harness)</p>
+            <p class="vsub">Нейросети, данные и агенты — на службе вашего Видения</p>
+          </div>
+          <div class="vbody">
+            <p>В AI-сообществе закрепился термин harness — <b>обвязка вокруг языковой модели</b>, которая делает её умной: хранилище данных, доступ к инструментам, агенты в фоне, способ подачи контекста.</p>
+            <div class="vmore">
+              <p>Мне ближе слово AI-контур — оно подчёркивает <b>замкнутость вокруг человека</b>: в центре вы, очертания ваших возможностей стабильны, а контур вокруг постоянно расширяется. Это точка, где нейросеть из умного помощника становится <b>со-автором</b> — качественное изменение, а не прибавка к скорости.</p>
+              <p>Главная ошибка — принимать контур за программу: один раз установил, пару раз в год обновил. Это <b>не программа, а состояние</b>, которое держат постоянными процессами — <b>как чистота</b>: чисто не там, где однажды всё надраили до блеска, а там, где убираются каждый день.</p>
+              <p>По-настоящему контур работает <b>только со сформированным Видением</b> — без него это умный помощник без направления, а с ним он становится вашим рычагом и <b>нечестным преимуществом</b>.</p>
+            </div>
+          </div>
+          <button class="vtoggle" type="button">Подробнее</button>
+        </article>
+
+        <article class="pc flag fmt-mostik" id="p-mostik">
+          <div class="vhead">
+            <p class="vdesc">Капитанский мостик</p>
+            <p class="vsub">Ежедневный путь к Видению — быстрее и эффективнее</p>
+          </div>
+          <div class="vbody">
+            <p>Если Видение — это <b>маяк</b> впереди, то капитанский мостик — способ проходить маршрут к нему <b>быстрее и с меньшими усилиями</b>. Это ежедневная утренняя процедура.</p>
+            <div class="vmore">
+              <p>Сначала <b>два замера</b>: физический — как ощущает себя тело, и эмоциональный — насколько вы заряжены. Затем третий вопрос, тот самый, что задают перед игрой в мафию, — <b>кто я сегодня</b>: через ассоциацию проступает роль, и уже через её призму строится план дня.</p>
+              <p>Дальше день идёт под контролем хода дел, а вечером собирается ретро — но усилие на это больше не тратится на слабом вечернем времени. Самое ценное — <b>сдвиг точки приложения сил</b>: фактура дня собирается в фоне, а энергия идёт <b>на создание, творчество и постижение</b>, а <b>не на бухгалтерию результатов</b>.</p>
+              <p>Мостик — <b>фундамент</b>, на котором Видение из картинки превращается в проходимый маршрут.</p>
+            </div>
+          </div>
+          <button class="vtoggle" type="button">Подробнее</button>
+        </article>
+
+        <article class="pc flag fmt-business" id="p-business">
+          <div class="vhead">
+            <p class="vdesc">AI и бизнес</p>
+            <p class="vsub">Ясность: где сэкономить быстро и где заработать по-крупному</p>
+          </div>
+          <div class="vbody">
+            <p>Начинаем <b>с ясности</b>: аудит и разбор вашей базы знаний как <b>второго мозга</b> — вы сразу видите, что происходит и как пример внедрения <b>раскладывается на ваш бизнес</b>.</p>
+            <div class="vmore">
+              <p>Сразу становится видно, где можно <b>сэкономить быстро</b>, а где — <b>заработать по-крупному</b>. Это разные горизонты, и путать их дорого.</p>
+              <p>Логика <b>«давай сэкономим»</b> простая: берём функцию, которую сегодня выполняет человек, и заменяем агентом — процессы отлажены, <b>деньги приходят раз-два</b>.</p>
+              <p>Дальше начинается дорогое и интересное — переосмысление организации, при котором люди <b>иначе воспринимают бизнес</b>. Это уже не оптимизация, а преимущество за счёт новой технологии: бизнес может стать <b>радикально меньше, а функционал — кратно больше</b>.</p>
+            </div>
+          </div>
+          <button class="vtoggle" type="button">Подробнее</button>
+        </article>
+
+        <article class="pc flag fmt-consult" id="p-consult">
+          <div class="vhead">
+            <p class="vdesc">Консультация</p>
+            <p class="vsub">Разбор вашего вопроса за встречу, дальше я на связи</p>
+          </div>
+          <div class="vbody">
+            <p>Простой разовый формат: берём ваш <b>конкретный вопрос или ситуацию</b> и <b>за одну встречу в час-полтора</b> разбираем — строим понятную модель того, что происходит на самом деле.</p>
+            <div class="vmore">
+              <p>Без долгой методологической рамки и обязательств на месяцы — фокус <b>на вашем случае</b>, а не на абстрактной теории. К концу встречи у вас есть <b>ясность</b> по тому, с чем пришли.</p>
+              <p>Разбор редко заканчивается ровно на встрече — обычно появляются ходы, которые хочется проверить в деле. Поэтому какое-то время после я <b>остаюсь на связи</b>: уточнить, свериться, <b>поправить курс</b> по ходу.</p>
+              <p>Так разовая консультация <b>доводится до результата</b>, а не повисает красивым выводом.</p>
+            </div>
+          </div>
+          <button class="vtoggle" type="button">Подробнее</button>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTE -->
+  <section data-block="5" id="start">
+    <div class="inhead">Как начать</div>
+    <div class="route rv">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h4>Сообщение</h4><p>Пишете пару строк о своей ситуации в Telegram. Отвечаю лично — без скриптов и продающих воронок.</p></div>
+        <div class="step"><div class="n">2</div><h4>Разговор</h4><p>Встречаемся и разбираем запрос: что за ситуация и чем я реально могу быть полезен. Если толку не вижу — скажу прямо.</p></div>
+        <div class="step"><div class="n">3</div><h4>Старт с малого</h4><p>Подбираем, с чего начать — от разовой консультации до Видения, контура или ведения. Берёмся за то, что даст сдвиг.</p></div>
+      </div>
+      <div class="btns">
+        <a class="btn btn-pri" href="https://t.me/AskFilippov">Написать в Telegram @AskFilippov</a>
+        <a class="btn btn-ghost" href="https://calendly.com/">Назначить встречу (Calendly)</a>
+        <a class="btn btn-ghost" href="#">Оставить заявку</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section data-block="6">
+    <div class="secwrap rv">
+    <div class="inhead">Для кого да — и для кого нет</div>
+    <div class="fw">
+      <div class="fwcard yes rv">
+        <ul class="fwlist">
+          <li>Состоялись, но потеряли ответ «зачем» и «куда дальше»</li>
+          <li>Действуете, но упираетесь в потолки и стены</li>
+          <li>Разочаровались в поиске волшебной таблетки</li>
+          <li>Готовы к работе и активному участию</li>
+        </ul>
+      </div>
+      <div class="fwcard no rv" style="animation-delay:.07s">
+        <ul class="fwlist">
+          <li>Ищете эзотерику или тайные знания</li>
+          <li>Знаете ответ на ваш вопрос, но он вас не устраивает</li>
+          <li>Идёте за эмоциональной накачкой и «личностным ростом»</li>
+          <li>Ждёте, что Видение придумают за вас</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section data-block="7" id="faq">
+    <div class="inhead">Частые вопросы</div>
+    <div class="secwrap rv">
+    <div class="faq">
+      <details class="q rv"><summary>Это коучинг?<span class="plus">+</span></summary>
+        <div class="a"><p>Нет. Я не задаю «чего вы хотите» и не предлагаю визуализировать успех на доске референсов. Такое упражнение без опоры на прошлое остаётся мечтательством — попыткой нарисовать дом на мягкой земле без фундамента. <b>Видение выводится из разбора вашего прошлого</b>: мы собираем биографию год за годом, раскладываем её на сюжетные арки — сезоны жизни со своей завязкой, конфликтом и финалом, — и из этого материала проступает следующая глава.</p><p>Это консалтинговая работа, а не коучинговая. Я даю модели, разбор и гипотезы — «вот как я это увидел, дальше поправим», — но <b>вывод произносите вы сами</b>. Ясность рождается из работы с конкретным материалом вашей жизни, а не из бесконечных вопросов к себе и накачки эмоций.</p><p>По парадигме я ближе к подходу Левенчука, чем к коучингу. Моя задача — не заправлять вас энергией снаружи, а помочь увидеть собственный узор: устойчивый способ доводить сюжеты до конца, цену прошлых компромиссов, закономерности там, где казалась случайность. Это знание становится фундаментом, на котором будущее можно строить трезво, а не на одном вдохновении.</p></div>
+      </details>
+      <details class="q rv"><summary>Видение — это только личная мотивация для меня?<span class="plus">+</span></summary>
+        <div class="a"><p>Нет. Личный азарт и опора на «зачем» — это первый слой, но не единственный. Видение — ещё и <b>инструмент работы с людьми</b> вокруг вас: партнёрами, ключевыми сотрудниками, соратниками.</p><p>Здесь работает понятие <b>авторизации</b>. Авторизовать — значит стать соавтором: сделать будущее своим, присвоить его себе. Большинство людей живут без собственного Видения — собрать его большой труд, до которого у многих не доходят руки. А природа не терпит пустоты: раз своего будущего нет, на его место охотно встаёт чужое. Этот механизм замещения работает в вашу пользу, если вы умеете ясно показать своё будущее.</p><p>Принципиальный момент: <b>авторизовать будущее за человека нельзя</b>. Можно лишь создать условия, в которые он впишет себя сам — увидит, кем станет через пять лет, какая у него будет роль и масштаб. И тут два правила из практики: чем яснее вы видите своё будущее, тем лучше передаёте его другим; и чем больше людей авторизовали одно будущее, тем выше его гравитация — оно сильнее притягивает новых и тем вероятнее наступает.</p></div>
+      </details>
+      <details class="q rv"><summary>Видение — только для меня или им можно вести команду?<span class="plus">+</span></summary>
+        <div class="a"><p>Командой можно вести именно через Видение, и это один из самых прочных способов. Общее будущее <b>привязывает человека к делу крепче, чем деньги</b>: деньги удерживают, пока нет предложения дороже, а присвоенное будущее держит изнутри.</p><p>Механика та же — авторизация. Если вы хотите работать с партнёрами и ключевыми людьми вдолгую, недостаточно поставить им цели сверху. Нужно показать своё Видение так, чтобы каждый <b>самостоятельно увидел, кем он станет</b> — не абстрактное «вырастешь в должности и доходе», а конкретно: какая роль, какой масштаб, какие вызовы. Когда человек достраивает образ сам и находит в нём себя, он перестаёт быть исполнителем под палкой и становится соавтором.</p><p>Дальше Видение работает как <b>общее направление</b>: задаёт, куда движется команда, а авторизованные соавторы превращают его в живую структуру, которая двигает это будущее вместе с вами — и держится в значительной мере без вашего ежедневного присутствия. Это и есть переход от ручного управления каждым шагом к команде, которая разделяет картину будущего и сама достраивает путь к ней.</p></div>
+      </details>
+      <details class="q rv"><summary>Настроенный AI быстро устареет — данные ведь меняются?<span class="plus">+</span></summary>
+        <div class="a"><p>Это самое частое заблуждение про AI-Контур: его принимают за программу — сложную, но в целом такую же, как офисный пакет. Помучился с установкой, пару раз в год накатил обновления, дальше работает. <b>Так это не работает.</b> AI-Контур — это не столько программа, сколько <b>состояние</b>, которое держится постоянными процессами.</p><p>Самая точная аналогия — чистота. Чисто не там, где однажды три дня всё драили до блеска, а там, где убираются каждый день. Так и Контур живёт только при условии, что его дорабатывают постоянно. Делает это <b>Капитанский мостик</b> — ежедневный ритм, на котором Контур обновляется вместе с инструментами, данными и вашей текущей ситуацией. Поэтому вопрос «устареет ли настройка» снимается: вы получаете не папку настроек, которую через месяц забыли, а рабочий ритм, который не протухает.</p><p>Отсюда же и большинство жалоб вида «нейросеть тупит, галлюцинирует, выдаёт средние ответы» — это претензия уровня «молоток плохо забивает гвозди». Контур, который держат в форме каждый день, бьёт точнее и эффективнее. Стратегия «поставил и забыл» даёт ровно то же, что квартира без уборки: вроде всё на месте, но жить в ней быстро становится неприятно.</p></div>
+      </details>
+      <details class="q rv"><summary>Чем это отличается от курсов по AI?<span class="plus">+</span></summary>
+        <div class="a"><p>Курсы учат инструменту в формате «сделай сам». На выходе вы получаете знания и, в лучшем случае, <b>папку прототипов</b> — упражнений, которые работают на учебном примере, но не встроены в ваше дело. А подавляющее большинство купивших курс так и не доходит до применения: когда заработок продавца зависит от продажи курса, а не от вашего результата, фокус смещается с дела на продажу.</p><p>Я устроен иначе. Я <b>переношу работающую конфигурацию под вас и веду до результата</b> в вашей реальной задаче, а не до выполненного упражнения. Контур переносится под конкретного человека и его Видение, обучение встроено в результат, а оплата идёт за действие и сдвиг, а не за «пачку видео».</p><p>И главное — я <b>живу этим сам</b>. Vault на компьютере и сервере, ежедневный Капитанский мостик, агенты в фоне, канал, который я веду четвёртый год без пропусков. Это не теория с курса, а референс-конфигурация, отлаженная на собственной шкуре. Я переношу вам то, что уже работает у меня, — и это совсем другой жанр, чем посмотреть лекцию и остаться один на один с белым листом.</p></div>
+      </details>
+      <details class="q rv"><summary>Получится ли, если я не программист?<span class="plus">+</span></summary>
+        <div class="a"><p>Да. AI-Контур замкнут <b>вокруг человека, а не вокруг кода</b>: в центре вы и ваши задачи, а техническая обвязка — хранилище данных, агенты, способ подачи контекста — это контур вокруг, который собираю и держу в форме я.</p><p>Ваша работа идёт со <b>смыслом, а не с технологией</b>: своя история, сюжетные арки, Видение, ежедневные решения на Капитанском мостике. Это работа, которую за вас не сделает никто — она про вашу жизнь и ваше дело. Технические детали — настройка, интеграции, поддержка состояния — остаются на моей стороне. По сути я переношу под вас уже работающую конфигурацию, а не выдаю инструкцию «соберите сами».</p><p>Более того, сильнее всего Контур помогает именно тогда, когда у него есть уникальный материал — ваша биография, арки, рефлексия. Это тот самый «соус», который превращает эрудированного собеседника во внимательного и прозорливого советника. Программистом для этого быть не нужно — нужно быть готовым честно разбираться со своим прошлым и будущим.</p></div>
+      </details>
+      <details class="q rv"><summary>Это разовая работа или надолго?<span class="plus">+</span></summary>
+        <div class="a"><p>Зависит от вашего запроса — форматы устроены так, чтобы можно было войти с малого. Самое простое начало — <b>разовая консультация</b>: разбор одной конкретной ситуации, после которого у вас есть модель и следующий шаг, без долгих обязательств.</p><p>На другом полюсе — <b>сопровождение</b>: еженедельное ведение на Капитанском мостике, работа с Видением и AI-Контуром вдолгую. Это не случайно: и Видение, и Контур по своей природе <b>живут сопровождением, а не разовой настройкой</b>. Видение уточняется по мере того, как в прожитых сюжетах проступают новые грани; Контур держится в актуальном состоянии только постоянным ритмом. Разовый разбор даёт ясность здесь и сейчас, а устойчивый результат накапливается в регулярной работе.</p><p>Поэтому навязывать «всё и сразу» я не буду. <b>Входить можно с малого</b> — с одной консультации — и углубляться ровно настолько, насколько того требует ваша задача. Глубину выбираете вы, а не формат.</p></div>
+      </details>
+      <details class="q rv"><summary>Как понять, что мне подойдёт?<span class="plus">+</span></summary>
+        <div class="a"><p>Первый разговор ровно для этого. Напишите пару строк о своей ситуации — на встрече мы разберём, что нужно закрыть, и подойдёт ли вам что-то из форматов.</p><p>Я работаю только по запросу: советы без запроса бесполезны, это «обогревание космоса». Поэтому сначала я хочу понять вашу задачу, а не продать вам формат. Если по сути мы не подходим друг другу — <b>скажу об этом честно</b>, без обязательств и без продающего давления.</p><p>Это не дежурная вежливость, а принцип: я беру клиента, с которым работа действительно даёт результат. Если ваша задача — не моя, прямой отказ полезнее обоим, чем растянутая работа ради процесса.</p></div>
+      </details>
+    </div>
+    </div>
+  </section>
+
+  <!-- LEAD BY EXAMPLE -->
+  <section data-block="8">
+    <div class="inhead">Отдаю клиентам только то, чем пользуюсь сам</div>
+    <div class="tcard tcard-split rv">
+      <div class="tleft">
+        <p class="leadp"><b>Видение, Капитанский мостик и AI-Контур</b> — не продукты, созданные, чтобы закрыть боль целевой аудитории, а то, что я <b>создавал для себя</b>, чаще всего в не самые лучшие периоды жизни. Сперва это <b>сработало на мне</b> — и только поэтому я предлагаю это другим.</p>
+        <p class="leadp">Я <b>открыто выкладываю свои мысли</b> — больше трёх лет веду канал, куда каждый день пишу посты: содержательные, без «я приехал, я поел, я заболел» и прочего лайфстайла. Это <b>почти 1,8 миллиона символов</b> и больше 1000 часов письма.</p>
+        <p class="leadp">На канале — <b>полная биография моей мысли</b>, которую при небольшом желании можно отследить: благо современные нейросети позволяют сделать это за минуты. Если у вас есть ко мне вопрос, с большой вероятностью в том или ином виде ответ на него есть на канале.</p>
+        <p class="leadp">Я методолог, консультант и, что самое важное, — <b>практик</b>. Мои находки, идеи и теории подкреплены и практикой, и <b>результатами клиентов</b>, и <b>самой средой, которую я создал вокруг себя</b> и в которой нахожусь каждый день.</p>
+        <p class="leadp">Моё Видение зафиксировано и <b>разложено на спринты</b>, в которых проставлены цели. Каждый день собирается <b>Капитанский мостик</b> и заканчивается сбором ретро. При этом всё это делают <b>агенты в фоне</b>, а сам <b>AI-Контур улучшается каждый день</b>.</p>
+        <p class="leadp leadp-final"><b>Я приношу только то, что использую сам и что помогло мне.</b></p>
+      </div>
+      <div class="tright">
+        <a class="chan-link" href="https://t.me/historyofresults" target="_blank" rel="noopener">
+          <span class="chan-tg"><svg viewBox="0 0 240 240" width="46" height="46" aria-hidden="true"><defs><linearGradient id="tgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2AABEE"/><stop offset="1" stop-color="#229ED9"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#tgGrad)"/><path fill="#fff" d="M53 118.7c35-15.2 58.3-25.3 70-30.2 33.3-13.9 40.3-16.3 44.8-16.4 1 0 3.2.2 4.7 1.4 1.2 1 1.5 2.3 1.7 3.3.2 1 .4 3.1.2 4.8-1.8 19-9.6 65.1-13.6 86.3-1.7 9-5 12-8.2 12.3-7 .6-12.3-4.6-19-9-10.6-6.9-16.5-11.2-26.8-18-11.9-7.8-4.2-12.1 2.6-19.1 1.8-1.8 32.5-29.8 33.1-32.3.1-.3.1-1.5-.6-2.1-.7-.6-1.7-.4-2.5-.2-1 .2-17.9 11.4-50.6 33.5-4.8 3.3-9.1 4.9-13 4.8-4.3-.1-12.5-2.4-18.7-4.4-7.5-2.4-13.5-3.7-13-7.9.3-2.2 3.3-4.4 9-6.8z"/></svg></span>
+          <span class="chan-name">Филиппов и Аттракцион<span class="dot">.</span></span>
+        </a>
+        <a class="intro-card" href="https://t.me/historyofresults/1274" target="_blank" rel="noopener">
+          <div class="intro-h">Пост-знакомство</div>
+          <div class="intro-body">
+            <p>Меня зовут Дмитрий Филиппов. Мне сорок два года, я родился в Ленинграде, живу в Петербурге. Бесконечно счастлив просыпаться каждое утро рядом с женой Маргаритой; вместе воспитываем двоих детей — Катю и Лёню.</p>
+            <p>Начал и продолжил в продажах, к середине десятых «вошёл в айти» через бизнес-анализ, а с начала двадцатых занялся консалтингом. Сперва консультировал по тому, что знал, потом — по тому, что мне интересно: формированию долгосрочного Видения, «маяка из будущего», и постановке регулярного менеджмента, чтобы проходить маршрут к маяку быстрее и с меньшими усилиями.</p>
+            <p>Канал веду четвёртый год, пишу каждый день, накопил больше тысячи ста постов — авторский контент…</p>
+          </div>
+          <span class="intro-more">Читать на канале →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section data-block="9">
+    <div class="inhead">Отзывы клиентов</div>
+    <div class="revs">
+
+      <div class="rev rv">
+        <div class="rhead">
+          <div class="ava"><img src="rev-zhelepa.jpg" alt="Максим Желепа"></div>
+          <div><div class="rname">Максим Желепа</div><div class="rrole">предприниматель, промышленные поставки</div></div>
+        </div>
+        <div class="rquote">
+          <p>До Дмитрия я нанимал разных консультантов, включая очень дорогих, и всегда искал в работе соль. Соль есть не у всех: у многих заряда хватает на две недели, потому что за разговором не идёт работа. Здесь иначе — мы прошли весь маршрут: моя история, сюжетные арки, Видение, маршрут к нему, регулярный менеджмент и стратегические сессии.</p>
+          <p>Главная перемена — я вижу систему, и это чувствуется: новости, которые раньше выбивали, встречаю хладнокровно. Команда заговорила другим языком — про доходы и расходы, недельные циклы ведёт уже без меня. И отдельное наблюдение: неделя одной операционки выматывает, а после сессии по Видению я выходил разогнавшимся.</p>
+          <p>Есть люди, которых впускаешь в свою жизнь, чтобы она стала интереснее и цели достигались, — Дмитрий из них. Я сам советовал ему упаковать работу с Видением в продукт. Рекомендую.</p>
+        </div>
+      </div>
+
+      <div class="rev rv" style="animation-delay:.05s">
+        <div class="rhead">
+          <div class="ava"><svg viewBox="0 0 24 24" width="30" height="30" fill="#9fb3c4" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.9 0-8 2-8 4.5V21h16v-2.5c0-2.5-4.1-4.5-8-4.5z"/></svg></div><div><div class="rname" style="font-size:14px;color:var(--ink-faint)">Отзыв ожидает подтверждения</div><div class="rrole">бизнес-инвестор</div></div>
+        </div>
+        <div class="rquote">
+          <p>Пришёл с точным запросом: есть личная философия в большом приближении и есть работающее ежедневное планирование, а посередине — ничего. В этой работе я увидел возможность разрыв заполнить. Подкупил подход: самый проработанный фреймворк из всех, что я встречал, — Дмитрий ведёт не интуитивно, а по фрейму.</p>
+          <p>Прошли весь маршрут: история, арки, Видение — и дальше ежедневная практика: капитанский мостик, рефлексия, итоги недели. Раньше я мыслил максимум неделями. Теперь за плечами больше пятидесяти дней практики подряд — и я впервые в жизни подвёл итоги квартала. Понял, почему у людей не получаются итоги года: это невозможно без такой регулярной работы.</p>
+          <p>Бонусом пошла цифровизация: нейросети и AI-инструменты стали частью моего рабочего дня — до презентаций, которые я теперь собираю сам. Дмитрию доверяю и те задачи, которые больше некому передать. Рекомендую тем, кто ищет не вдохновение, а систему.</p>
+        </div>
+      </div>
+
+      <div class="rev rv" style="animation-delay:.1s">
+        <div class="rhead">
+          <div class="ava"><svg viewBox="0 0 24 24" width="30" height="30" fill="#9fb3c4" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.9 0-8 2-8 4.5V21h16v-2.5c0-2.5-4.1-4.5-8-4.5z"/></svg></div><div><div class="rname" style="font-size:14px;color:var(--ink-faint)">Отзыв ожидает подтверждения</div><div class="rrole">предприниматель, лидер</div></div>
+        </div>
+        <div class="rquote">
+          <p>С операционкой я давно научилась справляться — пришла за стратегией и видением. Неожиданно работа началась не с бизнеса, а с меня: моя история год за годом, потом сюжетные арки. Сама бы я столько не вспомнила — и точно не свела бы это в одну картину.</p>
+          <p>Дмитрий помог соединить причинно-следственные связи: я понимаю, почему принимала те или иные решения, вижу свои повторяющиеся сценарии. Стояла перед пятью дорогами — теперь знаю, в какие две смотреть. Попутно досталось и бизнесу: после одного упражнения я увидела, что 80% встреч в моём календаре можно просто убрать.</p>
+          <p>Самое ценное — Дмитрий разворачивает посмотреть на привычное по-другому. Работает бережно, без спешки, честно держит границы метода. Показатель простой: в день сессии я просыпалась с желанием работать — даже перед отпуском.</p>
+        </div>
+      </div>
+
+      <div class="rev rv" style="animation-delay:.15s">
+        <div class="rhead">
+          <div class="ava"><svg viewBox="0 0 24 24" width="30" height="30" fill="#9fb3c4" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.9 0-8 2-8 4.5V21h16v-2.5c0-2.5-4.1-4.5-8-4.5z"/></svg></div><div><div class="rname" style="font-size:14px;color:var(--ink-faint)">Отзыв ожидает подтверждения</div><div class="rrole">предприниматель, производство</div></div>
+        </div>
+        <div class="rquote">
+          <p>Я человек скептический: после больших курсов зарёкся ходить на любые «обучашки» — а с Дмитрием договорился. Честно скажу, до последней встречи держал опасение: все говорят-говорят, а в результате пшик. Вышло наоборот: на выходе очень твёрдый инструмент.</p>
+          <p>Работа устроена неожиданно: сначала не будущее, а вся моя жизнь — история, сюжетные арки, круг людей. У меня всё обычно в тексте, а Дмитрий вытаскивает это в структуру и картинку — и картинка сама наводит порядок. Итог: впервые в жизни мой горизонт планирования не год, а шесть лет.</p>
+          <p>И главное — инструмент остался у меня, без привязки к консультанту: моя история, мой круг, моё будущее. Работаю с ними сам, и энергия на это есть. Рекомендую таким же скептикам, как я.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section id="contact" data-block="10">
+    <div class="inhead">Остались вопросы?</div>
+    <div class="final rv">
+      <p>Напишите пару строчек о своей ситуации — отвечу лично</p>
+      <div class="btns">
+        <a class="btn" href="https://t.me/AskFilippov">Написать в Telegram @AskFilippov</a>
+        <a class="btn" href="https://calendly.com/">Назначить встречу (Calendly)</a>
+        <a class="btn" href="#">Оставить заявку</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-block="11">
+    <div class="flinks">
+      <a href="https://t.me/AskFilippov">Telegram · @AskFilippov</a>
+      <a href="https://t.me/historyofresults">Канал «Филиппов и Аттракцион»</a>
+    </div>
+    Дмитрий Филиппов — методолог, консультант. Видение, AI-инфраструктура, сопровождение.
+  </footer>
+
+</div>
+
+<script>
+/* scroll-spy: подсветка активного пункта + бегунок по прогрессу прокрутки */
+(function(){
+  const links=[...document.querySelectorAll('.topnav a')];
+  const thumb=document.querySelector('.navthumb');
+  const map=links.map(a=>({a,sec:document.querySelector(a.getAttribute('href'))})).filter(x=>x.sec);
+  function spy(){
+    const y=window.scrollY+120;let cur=map[0];
+    for(const m of map){if(m.sec.offsetTop<=y)cur=m;}
+    links.forEach(a=>a.classList.remove('active'));
+    if(cur)cur.a.classList.add('active');
+    if(thumb&&cur){
+      const i=links.indexOf(cur.a);
+      thumb.style.left=(i*20)+'%';
+    }
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  window.addEventListener('resize',spy,{passive:true});spy();
+})();
+(function(){
+const ENTRIES=[
+ {label:"Не вижу практического применения AI",
+  quote:"Пользуюсь AI каждый день, но практического применения для своих задач так и не вижу — чувствую, что там в разы больше, а как достать не понимаю",
+  why:"Те, кто настроил свой контур, уже выжимают из тех же нейросетей кратно больше — разрыв растёт каждый месяц. <b>Собрать личный AI-контур под вас:</b> память, агенты, утренний разбор.",
+  change:"Нейросеть из болталки становится системой, что держит вашу картину и сама приносит наводки. <b>За две недели, а не за полгода ковыряния.</b>"},
+ {label:"Достиг цели — внутри пустота",
+  quote:"Дошёл до цели, к которой шёл годами — а вместо подъёма пустота. Куда теперь и зачем — непонятно",
+  why:"Пустота не проходит сама — без нового ориентира начинается дрейф и потеря темпа. <b>Собрать Видение:</b> из разбора вашего прошлого вывести следующую главу.",
+  change:"Появляется ясность, ради чего следующий рывок. <b>Снова есть азарт</b> там, где прежние цели исчерпаны, — решения перестают быть метанием."},
+ {label:"Знаю что делать — но откладываю",
+  quote:"Знаю, что надо делать, но каждый день откладываю. Год прошёл, а я на том же месте",
+  why:"Ещё год на том же месте — слишком дорогая цена промедления. <b>Поставить ежедневную систему,</b> которая держит курс и не даёт расплыться в текучке.",
+  change:"Курс реализуется в днях: <b>каждый день двигает к цели</b>, а не съедается рутиной. Без мотивационных пинков — на системе."},
+ {label:"Бизнес держится на мне",
+  quote:"Бизнес держится на мне, я по уши в операционке, рост упёрся — следующего хода не вижу",
+  why:"Пока всё завязано на вас, бизнес не масштабируется и не отпускает. <b>Поставить регулярный менеджмент</b> и снять часть ручного через AI.",
+  change:"Бизнес двигается без ручного управления каждым винтиком. <b>вы выходите из операционки в стратегию.</b>"},
+ {label:"Режу косты, но становится хуже",
+  quote:"Кризис, все режут косты — и я режу. Но легче не становится: ужимаюсь по кругу, роста не вижу",
+  why:"Спираль сокращений ведёт вниз — второй раунд режет уже по живому. <b>Точечно найти, где ваши же ресурсы плюс AI дают рычаг роста.</b>",
+  change:"Точка, где те же люди и активы дают <b>рост вместо спирали сокращений.</b> Эффект за недели, без долгого проекта."},
+ {label:"Реагирую НА, а не действую ОТ",
+  quote:"Мир с AI меняется быстрее, чем я успеваю осмыслить. Реагирую на поток, а не выбираю — теряю опору",
+  why:"Картина мира устаревает быстрее, чем обновляется, — промедление стоит позиции. <b>Собрать контур, который думает с вами,</b> и Видение, задающее направление.",
+  change:"вы остаётесь субъектом в новом мире: <b>AI усиливает ваше мышление, а не обгоняет.</b> Снова выбираете повестку."}
+];
+const STEPS=["Ситуация","Делаем","Результат"];const EMO=["📍","🛠️","🎯"];const SC=["s-sit","s-do","s-res"];
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const root=document.getElementById('b3');if(!root)return;
+const grid=el('div','tabgrid');const col=el('div','col');const slot=el('div','slot');
+root.append(el('div','coltitle','Видение меняет <span class="hl">главного Героя</span> — меняется и ситуация,&nbsp;в&nbsp;которой он оказался'));
+const btns=ENTRIES.map((e,i)=>{const b=el('button','ent',e.label);b.onclick=()=>sel(i);return b;});
+col.append(...btns);grid.append(col,slot);root.append(grid);
+function render(e){const P=[e.quote,e.why,e.change];const d=el('div','blocks');
+  [0,1,2].forEach(k=>{const s=el('div','blk '+SC[k]);const mk=el('div','mk');
+    mk.append(el('div','ill',EMO[k]),el('div','lab',STEPS[k]));
+    s.append(mk,el('div','bd',P[k]));d.append(s);});return d;}
+function sel(i){btns.forEach((x,j)=>x.classList.toggle('on',j===i));slot.innerHTML='';slot.append(render(ENTRIES[i]));}
+sel(0);
+})();
+</script>
+<script>
+(function(){
+  const h=document.querySelector('header');
+  const v4=document.getElementById('pains-v4');
+  if(h&&v4){h.after(v4);}
+})();
+</script>
+<style>img.emoji{height:1.05em;width:auto;vertical-align:-0.16em;display:inline-block;margin:0 .02em}</style>
+<script>
+(function(){
+  const re=/(\p{Extended_Pictographic}(?:️)?(?:‍\p{Extended_Pictographic}(?:️)?)*)/gu;
+  const SKIP=new Set(['SCRIPT','STYLE','IMG','TEXTAREA','CODE']);
+  function appleImg(ch){return '<img class="emoji" alt="'+ch+'" src="https://emojicdn.elk.sh/'+encodeURIComponent(ch)+'?style=apple">';}
+  function walk(node){
+    if(node.nodeType===3){
+      const t=node.nodeValue;
+      if(re.test(t)){
+        re.lastIndex=0;
+        const span=document.createElement('span');
+        span.innerHTML=t.replace(re,m=>appleImg(m));
+        node.replaceWith(span);
+      }
+    }else if(node.nodeType===1 && !SKIP.has(node.tagName) && !node.classList.contains('emojified')){
+      [...node.childNodes].forEach(walk);
+    }
+  }
+  function run(){walk(document.body);}
+  if(document.readyState!=='loading')run(); else document.addEventListener('DOMContentLoaded',run);
+})();
+</script>
+<script>
+(function(){
+  function fitFrame(fr){if(!fr)return;try{var h=fr.contentDocument.body.scrollHeight;if(h>200)fr.style.height=h+'px';}catch(e){}}
+  document.querySelectorAll('.pc.flag .vtoggle').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.closest('.pc.flag');
+      var open=c.classList.toggle('open');
+      b.textContent=open?'Свернуть':'Подробнее';
+      var fr=c.querySelector('.vid-frame');
+      if(open&&fr){setTimeout(function(){fitFrame(fr);},120);setTimeout(function(){fitFrame(fr);},600);}
+    });
+  });
+  var vf=document.getElementById('vidFrame');
+  if(vf)vf.addEventListener('load',function(){if(vf.closest('.pc.flag').classList.contains('open'))fitFrame(vf);});
+})();
+</script>
+</body>
+</html>
