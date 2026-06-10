@@ -506,6 +506,20 @@ function openYearDoc(year){
   const ov=document.createElement('div');ov.className='ydoc-ov';
   ov.innerHTML='<div class="ydoc-modal" role="dialog" aria-label="документ года '+year+'"><button class="x" aria-label="Закрыть">×</button>'+inner+'</div>';
   document.body.appendChild(ov);
+  if(window.self!==window.top){
+    // встроены в iframe (витрина услуг): position:fixed ломается в высоком iframe без
+    // собственного скролла — модалка улетает к верху embed. Якорим её к выбранной клетке,
+    // чтобы документ открывался там, где тапнули. Standalone-страницы это не затрагивает.
+    var anchor=document.querySelector('.yc[data-year="'+year+'"]');
+    var cy=anchor?Math.round(anchor.getBoundingClientRect().top+window.scrollY):40;
+    ov.style.position='absolute';
+    ov.style.top=Math.max(8,cy-8)+'px';
+    ov.style.bottom='auto';
+    ov.style.minHeight='0';
+    ov.style.height='auto';
+    ov.style.padding='0 16px';
+    ov.style.background='transparent';
+  }
   const close=()=>ov.remove();
   ov.addEventListener('click',e=>{if(e.target===ov)close();});
   ov.querySelector('.x').addEventListener('click',close);
