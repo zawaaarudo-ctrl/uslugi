@@ -278,6 +278,12 @@ footer .att{color:var(--brass-deep);font-family:'Hanken Grotesk',sans-serif;font
   .wrap{padding:0 18px}
   .sheet-grid{grid-template-columns:repeat(5,1fr)}
   .sheet{padding:16px 12px 14px}
+  /* доска истории: высота по контенту и полная ширина — иначе сетка лет
+     (overflow:visible на мобиле) вываливается из фикс-560px и наезжает на след. секцию */
+  .sheet.histsheet{height:auto;width:100%}
+  /* снять узкие центрирующие ограничители — на мобиле текст идёт по всей ширине */
+  .shead.lined,.inside,.intro80{width:100%}
+  .board-hint{width:100%}
   .sec-num{font-size:32px;opacity:.5}
   header{padding:54px 0 26px}
   section{padding:48px 0}

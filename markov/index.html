@@ -891,5 +891,32 @@ sel(0);
   if(vf)vf.addEventListener('load',function(){if(vf.closest('.pc.flag').classList.contains('open'))fitFrame(vf);});
 })();
 </script>
+<style>
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ (десктопный вид — эталон, его не трогаем).
+   Размещено в конце документа, чтобы выигрывать тай-брейки специфичности
+   у правил из второго <style> блока (#pains и др.). ===== */
+@media(max-width:760px){
+  /* карточка Видения: длинный заголовок переносится, а не режется nowrap'ом */
+  #p-videnie .vhead .vdesc{white-space:normal}
+  /* лента 4 этапов в одну колонку — убрать фикс-высоту и растяжку, чтобы не было пустот */
+  .pc.flag .vpart{min-height:0;justify-content:flex-start}
+  /* пламя «болей»: отключить тяжёлый анимированный SVG-фильтр (бережём слабые устройства) */
+  #pains .v4box .v3p::after{animation:none!important;filter:none!important}
+}
+@media(max-width:680px){
+  /* липкая шапка: две кнопки в один компактный ряд, а не стопкой на пол-экрана
+     (на мобиле скрытая навигация + столбик кнопок съедал ~140px вьюпорта).
+     min-width:0 + flex:1 1 0 заставляют кнопки делить ширину поровну и не переносить текст */
+  section[data-block="1"] .cta2l{flex-direction:row;align-items:stretch;padding:8px 12px;gap:8px}
+  section[data-block="1"] .cta2l .btns{flex:1 1 auto;flex-wrap:nowrap;gap:8px;min-width:0}
+  section[data-block="1"] .cta2l .btn{flex:1 1 0;min-width:0;padding:10px 6px;font-size:12.5px;line-height:1.2;justify-content:center;text-align:center}
+}
+@media(max-width:560px){
+  /* блок «болей»: высота по контенту, иначе три карточки наезжают друг на друга */
+  #pains .v4box{height:auto}
+  /* финальный CTA: крупный абзац ужать под узкий экран */
+  .final p{font-size:21px}
+}
+</style>
 </body>
 </html>
